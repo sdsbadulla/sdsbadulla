@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coming Soon | Specialist Dental Service</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="cs-body">
+
+    <div class="cs-container">
+        <div class="cs-logo">
+            <i class="fa-solid fa-tooth"></i> Specialist Dental
+        </div>
+
+        <div class="cs-content">
+            <h1>We Are Launching Soon!</h1>
+            <p>We are building a new digital experience for our patients in Badulla. Stay tuned for online booking, detailed service info, and more.</p>
+
+            <div class="countdown-box">
+                <div class="time-unit">
+                    <span class="time-val" id="days">00</span>
+                    <span class="time-label">Days</span>
+                </div>
+                <div class="time-unit">
+                    <span class="time-val" id="hours">00</span>
+                    <span class="time-label">Hours</span>
+                </div>
+                <div class="time-unit">
+                    <span class="time-val" id="minutes">00</span>
+                    <span class="time-label">Mins</span>
+                </div>
+                <div class="time-unit">
+                    <span class="time-val" id="seconds">00</span>
+                    <span class="time-label">Secs</span>
+                </div>
+            </div>
+
+            <p style="margin-bottom: 1rem;">Get notified when we go live:</p>
+            <form class="cs-form" name="coming-soon-notify" method="POST" data-netlify="true">
+                <input type="email" name="email" placeholder="Enter your email address" required>
+                <button type="submit" class="btn-primary">Notify Me</button>
+            </form>
+
+            <div class="cs-footer-info">
+                <p>In the meantime, you can reach us at:</p>
+                <div style="margin: 1rem 0;">
+                    <strong>055 222 8155</strong>
+                    <span>No 43 Bandarawela Road, Badulla</span>
+                </div>
+                <div class="social-links" style="justify-content: center; margin-top: 1rem;">
+                    <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#"><i class="fa-brands fa-tiktok"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Set the date we're counting down to (e.g., 14 days from now)
+        // You can change this date to your actual launch date
+        const countDownDate = new Date();
+        countDownDate.setDate(countDownDate.getDate() + 14); 
+
+        const x = setInterval(function() {
+            const now = new Date().getTime();
+            const distance = countDownDate - now;
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById("days").innerHTML = days < 10 ? "0" + days : days;
+            document.getElementById("hours").innerHTML = hours < 10 ? "0" + hours : hours;
+            document.getElementById("minutes").innerHTML = minutes < 10 ? "0" + minutes : minutes;
+            document.getElementById("seconds").innerHTML = seconds < 10 ? "0" + seconds : seconds;
+
+            if (distance < 0) {
+                clearInterval(x);
+                document.querySelector(".countdown-box").innerHTML = "<h3>We are Live! Refresh the page.</h3>";
+            }
+        }, 1000);
+    </script>
+
+</body>
+</html>
