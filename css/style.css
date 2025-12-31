@@ -85,7 +85,7 @@ header {
     position: sticky;
     top: 0;
     z-index: 1000;
-    padding: 1rem 0;
+    padding: 0.5rem 0; /* Reduced padding slightly to accommodate logo height */
 }
 
 .navbar {
@@ -95,12 +95,15 @@ header {
 }
 
 .logo {
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: var(--accent-color);
     display: flex;
     align-items: center;
-    gap: 10px;
+}
+
+/* New style to control logo image size */
+.logo img {
+    height: 60px; /* Adjust this value if you want the logo bigger/smaller */
+    width: auto;
+    object-fit: contain;
 }
 
 .nav-menu {
@@ -110,11 +113,10 @@ header {
 }
 
 .nav-links { display: flex; gap: 2rem; }
-.nav-links a { font-weight: 500; font-size: 0.95rem; }
+.nav-links a { font-weight: 500; font-size: 0.95rem; transition: color 0.3s; }
 .nav-links a:hover, .nav-links a.active { color: var(--accent-color); }
 
 .hamburger { display: none; cursor: pointer; font-size: 1.5rem; }
-
 /* --- New Hero Section with Form --- */
 .hero-section {
     padding: 3rem 0;
@@ -400,11 +402,14 @@ footer {
 .footer-col h4 { margin-bottom: 1.5rem; color: var(--text-dark); }
 .footer-col ul li { margin-bottom: 0.8rem; }
 .footer-col ul li a:hover { color: var(--accent-color); }
+.footer-col ul li a.active { color: var(--accent-color);}
 .social-links { display: flex; gap: 1rem; margin-top: 1rem; }
 .social-links a {
     width: 40px; height: 40px;
     background: var(--white);
-    display: flex; alignItems: center; justifyContent: center;
+    display: flex; 
+    align-Items: center; 
+    justify-Content: center;
     border-radius: 50%;
     color: var(--accent-color);
 }
